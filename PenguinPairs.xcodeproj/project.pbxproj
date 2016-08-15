@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F43051F11D601E4600E6EAAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43051F01D601E4600E6EAAE /* AppDelegate.swift */; };
-		F43051F31D601E4600E6EAAE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F43051F21D601E4600E6EAAE /* GameScene.sks */; };
 		F43051F51D601E4600E6EAAE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43051F41D601E4600E6EAAE /* GameScene.swift */; };
 		F43051F71D601E4600E6EAAE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43051F61D601E4600E6EAAE /* GameViewController.swift */; };
 		F43051FA1D601E4600E6EAAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F43051F81D601E4600E6EAAE /* Main.storyboard */; };
@@ -53,7 +52,6 @@
 /* Begin PBXFileReference section */
 		F43051ED1D601E4600E6EAAE /* PenguinPairs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenguinPairs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43051F01D601E4600E6EAAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F43051F21D601E4600E6EAAE /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		F43051F41D601E4600E6EAAE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		F43051F61D601E4600E6EAAE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		F43051F91D601E4600E6EAAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 				F4B79B071D60B617003A4275 /* Assets */,
 				F4B79B011D6076CA003A4275 /* InputHelper.swift */,
 				F43051F01D601E4600E6EAAE /* AppDelegate.swift */,
-				F43051F21D601E4600E6EAAE /* GameScene.sks */,
 				F4B79B201D60B970003A4275 /* Sound.swift */,
 				F43051F41D601E4600E6EAAE /* GameScene.swift */,
 				F43051F61D601E4600E6EAAE /* GameViewController.swift */,
@@ -288,7 +285,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F43051F31D601E4600E6EAAE /* GameScene.sks in Resources */,
 				F4B79B181D60B684003A4275 /* snd_pair.mp3 in Resources */,
 				F43051FF1D601E4600E6EAAE /* LaunchScreen.storyboard in Resources */,
 				F4B79B171D60B684003A4275 /* snd_music.mp3 in Resources */,
