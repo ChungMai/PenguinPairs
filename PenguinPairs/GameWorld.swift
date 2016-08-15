@@ -15,6 +15,7 @@ class GameWorld : SKNode {
     var backgroundOption = SKSpriteNode(imageNamed: "spr_background_options")
     let onOffLabel = SKLabelNode(fontNamed: "Helvetica")
     let onOffButton = OnOffButton()
+    let musicSlider = Slider()
     
     // initializers
     override init() {
@@ -70,9 +71,23 @@ class GameWorld : SKNode {
         
         onOffButton.position = CGPoint(x: 200, y: 50)
         self.addChild(onOffButton)
+        
+        let musicLabel = SKLabelNode(fontNamed: "Helvetica")
+        musicLabel.horizontalAlignmentMode = .Right
+        musicLabel.verticalAlignmentMode = .Center
+        musicLabel.position = CGPoint(x: -50, y: -100)
+        musicLabel.fontColor = UIColor(red: 0, green: 0, blue: 0.4, alpha: 1)
+        musicLabel.fontSize = 60
+        musicLabel.text = "Music volume"
+        self.addChild(musicLabel)
+        
+        musicSlider.position = CGPoint(x:200, y:-100)
+        self.addChild(musicSlider)
+        musicSlider.value = 0.5
     }
     
     override func handleInput(inputHelper: InputHelper) {
         self.onOffButton.handleInput(inputHelper)
+        self.musicSlider.handleInput(inputHelper)
     }
 }

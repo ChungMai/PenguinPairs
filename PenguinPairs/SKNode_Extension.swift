@@ -11,7 +11,23 @@ import SpriteKit
 extension SKNode{
     var box: CGRect {
         get {
-            return self.calculateAccumulatedFrame()
+            var boundingBox =  self.calculateAccumulatedFrame()
+            if parent != nil {
+                boundingBox.origin = scene!.convertPoint(boundingBox.origin, fromNode: parent!)
+            }
+            
+            return boundingBox
+        }
+    }
+    
+    var worldPosition : CGPoint{
+        get{
+            if parent != nil{
+                return parent!.convertPoint(position, toNode: scene!)
+            }
+            else{
+                return position
+            }
         }
     }
     
