@@ -28,8 +28,14 @@ class GameScene: SKScene {
     
     override init(size: CGSize) {
         super.init(size: size)
-        GameScene.world.size = size
-        GameScene.world.setup()
+        GameScreen.instance.size = size
+        
+        // create the game states
+        GameStateManager.instance.add(TitleMenuState())
+        GameStateManager.instance.add(HelpState())
+        GameStateManager.instance.add(OptionsMenuState())
+        GameStateManager.instance.add(LevelMenuState(nrLevels: 12))
+        GameStateManager.instance.switchTo("title")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,14 +44,14 @@ class GameScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        addChild(GameScene.world)
+        addChild(GameStateManager.instance)
         view.frameInterval = 2
         delta = NSTimeInterval(view.frameInterval) / 60
     }
     
     override func update(currentTime: NSTimeInterval) {
-        GameScene.world.handleInput(inputHelper)
-        GameScene.world.updateDelta(delta)
+        GameStateManager.instance.handleInput(inputHelper)
+        GameStateManager.instance.updateDelta(delta)
         inputHelper.reset()
     }
     
