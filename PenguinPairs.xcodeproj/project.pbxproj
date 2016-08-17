@@ -15,6 +15,8 @@
 		9A0939A51D61D74F0067738D /* LevelMenuState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0939A41D61D74F0067738D /* LevelMenuState.swift */; };
 		9A0939A71D61D7AA0067738D /* LevelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0939A61D61D7AA0067738D /* LevelButton.swift */; };
 		9A0939A91D61DE6C0067738D /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0939A81D61DE6C0067738D /* GameScreen.swift */; };
+		9AB051511D64770E00F670F1 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB051501D64770E00F670F1 /* Math.swift */; };
+		9AB051581D64795F00F670F1 /* AnimalSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB051571D64795F00F670F1 /* AnimalSelector.swift */; };
 		F43051F11D601E4600E6EAAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43051F01D601E4600E6EAAE /* AppDelegate.swift */; };
 		F43051F51D601E4600E6EAAE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43051F41D601E4600E6EAAE /* GameScene.swift */; };
 		F43051F71D601E4600E6EAAE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43051F61D601E4600E6EAAE /* GameViewController.swift */; };
@@ -23,7 +25,6 @@
 		F430520A1D601E4600E6EAAE /* PenguinPairsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43052091D601E4600E6EAAE /* PenguinPairsTests.swift */; };
 		F43052151D601E4600E6EAAE /* PenguinPairsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43052141D601E4600E6EAAE /* PenguinPairsUITests.swift */; };
 		F43052231D601FD800E6EAAE /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43052221D601FD800E6EAAE /* GridLayout.swift */; };
-		F43052271D6021B800E6EAAE /* GameWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43052261D6021B800E6EAAE /* GameWorld.swift */; };
 		F4B79B021D6076CA003A4275 /* InputHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B79B011D6076CA003A4275 /* InputHelper.swift */; };
 		F4B79B041D60B0C1003A4275 /* SKNode_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B79B031D60B0C1003A4275 /* SKNode_Extension.swift */; };
 		F4B79B111D60B684003A4275 /* Autodestruct.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4B79B081D60B684003A4275 /* Autodestruct.ttf */; };
@@ -66,6 +67,8 @@
 		9A0939A41D61D74F0067738D /* LevelMenuState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelMenuState.swift; sourceTree = "<group>"; };
 		9A0939A61D61D7AA0067738D /* LevelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
 		9A0939A81D61DE6C0067738D /* GameScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScreen.swift; path = Assets/GameScreen.swift; sourceTree = "<group>"; };
+		9AB051501D64770E00F670F1 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		9AB051571D64795F00F670F1 /* AnimalSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalSelector.swift; sourceTree = "<group>"; };
 		F43051ED1D601E4600E6EAAE /* PenguinPairs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenguinPairs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43051F01D601E4600E6EAAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F43051F41D601E4600E6EAAE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; wrapsLines = 1; };
@@ -80,7 +83,6 @@
 		F43052141D601E4600E6EAAE /* PenguinPairsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenguinPairsUITests.swift; sourceTree = "<group>"; };
 		F43052161D601E4600E6EAAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F43052221D601FD800E6EAAE /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
-		F43052261D6021B800E6EAAE /* GameWorld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameWorld.swift; sourceTree = "<group>"; };
 		F4B79B011D6076CA003A4275 /* InputHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputHelper.swift; sourceTree = "<group>"; };
 		F4B79B031D60B0C1003A4275 /* SKNode_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKNode_Extension.swift; sourceTree = "<group>"; };
 		F4B79B081D60B684003A4275 /* Autodestruct.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Autodestruct.ttf; sourceTree = "<group>"; };
@@ -122,6 +124,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9AB051521D64772C00F670F1 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				9A09399E1D61D1480067738D /* Button.swift */,
+				9A0939A61D61D7AA0067738D /* LevelButton.swift */,
+				F4B79B221D60C5E6003A4275 /* Slider.swift */,
+				F4B79B1A1D60B76A003A4275 /* OnOffButton.swift */,
+			);
+			name = GUI;
+			sourceTree = "<group>";
+		};
+		9AB051551D64778800F670F1 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				9A09399C1D61CDA80067738D /* TitleMenuState.swift */,
+				9A0939A01D61D4B20067738D /* HelpState.swift */,
+				9A0939A21D61D5720067738D /* OptionsMenuState.swift */,
+				9A0939A41D61D74F0067738D /* LevelMenuState.swift */,
+			);
+			name = State;
+			sourceTree = "<group>";
+		};
+		9AB051561D6477A400F670F1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F4B79B201D60B970003A4275 /* Sound.swift */,
+				F4B79B031D60B0C1003A4275 /* SKNode_Extension.swift */,
+				9AB051501D64770E00F670F1 /* Math.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		F43051E41D601E4600E6EAAE = {
 			isa = PBXGroup;
 			children = (
@@ -145,28 +179,21 @@
 		F43051EF1D601E4600E6EAAE /* PenguinPairs */ = {
 			isa = PBXGroup;
 			children = (
+				9AB051561D6477A400F670F1 /* Utilities */,
+				9AB051551D64778800F670F1 /* State */,
+				9AB051521D64772C00F670F1 /* GUI */,
 				F4B79B071D60B617003A4275 /* Assets */,
 				F4B79B011D6076CA003A4275 /* InputHelper.swift */,
 				F43051F01D601E4600E6EAAE /* AppDelegate.swift */,
-				F4B79B201D60B970003A4275 /* Sound.swift */,
 				F43051F41D601E4600E6EAAE /* GameScene.swift */,
 				F43051F61D601E4600E6EAAE /* GameViewController.swift */,
 				F43051F81D601E4600E6EAAE /* Main.storyboard */,
 				F43051FD1D601E4600E6EAAE /* LaunchScreen.storyboard */,
 				F43052001D601E4600E6EAAE /* Info.plist */,
 				F43052221D601FD800E6EAAE /* GridLayout.swift */,
-				F43052261D6021B800E6EAAE /* GameWorld.swift */,
-				F4B79B031D60B0C1003A4275 /* SKNode_Extension.swift */,
-				F4B79B1A1D60B76A003A4275 /* OnOffButton.swift */,
-				F4B79B221D60C5E6003A4275 /* Slider.swift */,
 				9A09399A1D61C2F40067738D /* GameStateManager.swift */,
-				9A09399C1D61CDA80067738D /* TitleMenuState.swift */,
-				9A09399E1D61D1480067738D /* Button.swift */,
-				9A0939A01D61D4B20067738D /* HelpState.swift */,
-				9A0939A21D61D5720067738D /* OptionsMenuState.swift */,
-				9A0939A41D61D74F0067738D /* LevelMenuState.swift */,
-				9A0939A61D61D7AA0067738D /* LevelButton.swift */,
 				9A0939A81D61DE6C0067738D /* GameScreen.swift */,
+				9AB051571D64795F00F670F1 /* AnimalSelector.swift */,
 			);
 			path = PenguinPairs;
 			sourceTree = "<group>";
@@ -352,10 +379,11 @@
 				9A0939A11D61D4B20067738D /* HelpState.swift in Sources */,
 				F4B79B231D60C5E6003A4275 /* Slider.swift in Sources */,
 				F43051F11D601E4600E6EAAE /* AppDelegate.swift in Sources */,
-				F43052271D6021B800E6EAAE /* GameWorld.swift in Sources */,
 				9A0939A31D61D5720067738D /* OptionsMenuState.swift in Sources */,
 				9A09399D1D61CDA80067738D /* TitleMenuState.swift in Sources */,
 				F43052231D601FD800E6EAAE /* GridLayout.swift in Sources */,
+				9AB051511D64770E00F670F1 /* Math.swift in Sources */,
+				9AB051581D64795F00F670F1 /* AnimalSelector.swift in Sources */,
 				F4B79B211D60B970003A4275 /* Sound.swift in Sources */,
 				9A0939A91D61DE6C0067738D /* GameScreen.swift in Sources */,
 				F4B79B021D6076CA003A4275 /* InputHelper.swift in Sources */,

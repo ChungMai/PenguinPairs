@@ -23,9 +23,6 @@ class GameScene: SKScene {
     
     var inputHelper = InputHelper()
     var touchmap: [UITouch:Int] = [UITouch:Int]()
-    
-    static var world = GameWorld()
-    
     override init(size: CGSize) {
         super.init(size: size)
         GameScreen.instance.size = size

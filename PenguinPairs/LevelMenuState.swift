@@ -13,6 +13,7 @@ class LevelMenuState : SKNode{
     var levelButtons = SKNode()
     var layout: GridLayout?
     var nrLevels = 0
+    var quitButton = Button(imageNamed:"spr_button_quit")
     
     // initializers
     init(nrLevels: Int) {
@@ -30,19 +31,20 @@ class LevelMenuState : SKNode{
         layout?.yPadding = 5
         self.addChild(levelButtons)
         layout?.target = levelButtons
-        
-        /* The original C-style for statement is deprecated. You can achieve the same thing
-         by using a range and reversing it, as illustrated below */
+//
+//        /* The original C-style for statement is deprecated. You can achieve the same thing
+//         by using a range and reversing it, as illustrated below */
         for i in (0..<nrRows).reverse() {
+            print("i:\(i)")
             for j in 0..<nrCols {
-                if i*nrCols + j + 1 <= nrLevels {
+                //if i*nrCols + j + 1 <= nrLevels {
                     let level = LevelButton(levelIndex: i*nrCols + j + 1)
                     level.name = "levelButton\(i*nrCols + j + 1)"
                     level.zPosition = Layer.Scene
                     layout?.add(level)
-                } else {
-                    layout?.add(SKNode())
-                }
+//                } else {
+//                    layout?.add(SKNode())
+//                }
             }
         }
         
@@ -52,6 +54,10 @@ class LevelMenuState : SKNode{
         backButton.zPosition = Layer.Scene
         backButton.position = CGPoint(x: 0, y: -320)
         self.addChild(backButton)
+        
+        quitButton.position = GameScreen.instance.topRight - quitButton.center - CGPoint(x:10,y:10)
+        quitButton.zPosition = Layer.Overlay
+        addChild(quitButton)
     }
     
     required init?(coder aDecoder: NSCoder) {
