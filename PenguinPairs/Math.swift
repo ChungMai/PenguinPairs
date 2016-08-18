@@ -19,3 +19,16 @@ func == (left: CGPoint, right: CGPoint) -> Bool {
 func * (point: CGPoint, increase : CGFloat) -> CGPoint{
     return CGPoint(x: point.x * increase, y: point.y * increase)
 }
+
+extension CGPoint {
+    static func normalize(p : CGPoint) -> CGPoint {
+        let len = p.length
+        return CGPoint(x: p.x / len, y: p.y / len)
+    }
+    
+    var length : CGFloat {
+        get {
+            return sqrt(self.x * self.x + self.y * self.y)
+        }
+    }
+}

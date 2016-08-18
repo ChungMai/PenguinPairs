@@ -49,6 +49,13 @@ class Animal : SKNode{
             return
         }
         
+        let tileField = childNodeWithName("//tileField") as! TileField
+        let (targetcol, targetrow) = currentBlock
+        if(tileField.getTileType(targetrow, column: targetcol) == TileType.Background){
+            self.hidden = true
+            self.velocity = CGPoint.zero
+        }
+        
         
     }
     
@@ -73,6 +80,14 @@ class Animal : SKNode{
             }
             return (-1, -1)
         }
-    }    
+    }
+    
+    func stopMoving(){
+        let tileField = childNodeWithName("//tileField") as! TileField
+        velocity = CGPoint.normalize(velocity)
+        let (currentCol, currentRow) = currentBlock
+        position = tileField.layout.toPosition(currentCol - Int(velocity.x), row: currentRow - Int(velocity.y))
+        velocity = CGPoint.zero
+    }
     
 }
