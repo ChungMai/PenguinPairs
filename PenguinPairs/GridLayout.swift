@@ -61,4 +61,10 @@ class GridLayout{
         
         return nil
     }
+    
+    func toGridLocation(position: CGPoint) -> (Int, Int) {
+        let colindex = Int(floor((position.x + CGFloat(columns * (cellWidth + xPadding)) / 2) / CGFloat(cellWidth + xPadding)))
+        let rowindex = Int(floor((position.y + CGFloat(rows * (cellHeight + yPadding)) / 2) / CGFloat(cellHeight + yPadding)))
+        return (colindex, rowindex)
+    }
 }

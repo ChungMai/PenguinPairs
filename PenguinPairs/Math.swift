@@ -15,3 +15,7 @@ func - (left:CGPoint,right:CGPoint) -> CGPoint{
 func == (left: CGPoint, right: CGPoint) -> Bool {
     return (left.x == right.x) && (left.y == right.y)
 }
+
+func * (point: CGPoint, increase : CGFloat) -> CGPoint{
+    return CGPoint(x: point.x * increase, y: point.y * increase)
+}
