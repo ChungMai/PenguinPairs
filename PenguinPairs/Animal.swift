@@ -13,6 +13,7 @@ class Animal : SKNode{
     var velocity = CGPoint.zero
     var isSharp : Bool = false
     var boxed : Bool = false
+    var type = "x"
     
     override init(){
         super.init()
@@ -55,8 +56,12 @@ class Animal : SKNode{
             self.hidden = true
             self.velocity = CGPoint.zero
         }
-        
-        
+        else if tileField.getTileType(targetrow, column:targetcol) == .Wall {
+            self.stopMoving()
+        }
+        else{
+            //let lvl =  GameStateManager.instance.currentState as?
+        }
     }
     
     var currentBlock: (Int, Int){
@@ -90,4 +95,27 @@ class Animal : SKNode{
         velocity = CGPoint.zero
     }
     
+    var isSeal: Bool {
+        get {
+            return type == "s"
+        }
+    }
+    
+    var isMulticolor: Bool {
+        get {
+            return type == "m"
+        }
+    }
+    
+    var isEmptyBox: Bool {
+        get {
+            return type == "@" && boxed
+        }
+    }
+    
+    var isShark: Bool {
+        get {
+            return type == "x"
+        }
+    }
 }

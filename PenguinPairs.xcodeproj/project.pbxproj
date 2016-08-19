@@ -20,6 +20,8 @@
 		9A36D2431D6565F300AA9822 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A36D2421D6565F300AA9822 /* Tile.swift */; };
 		9AB051511D64770E00F670F1 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB051501D64770E00F670F1 /* Math.swift */; };
 		9AB051581D64795F00F670F1 /* AnimalSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB051571D64795F00F670F1 /* AnimalSelector.swift */; };
+		9AB9C2CD1D66B57D00DDDC1E /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9C2CC1D66B57D00DDDC1E /* FileReader.swift */; };
+		9AB9C2CF1D66C7E800DDDC1E /* LevelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9C2CE1D66C7E800DDDC1E /* LevelState.swift */; };
 		F43051F11D601E4600E6EAAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43051F01D601E4600E6EAAE /* AppDelegate.swift */; };
 		F43051F51D601E4600E6EAAE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43051F41D601E4600E6EAAE /* GameScene.swift */; };
 		F43051F71D601E4600E6EAAE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43051F61D601E4600E6EAAE /* GameViewController.swift */; };
@@ -75,6 +77,8 @@
 		9A36D2421D6565F300AA9822 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		9AB051501D64770E00F670F1 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		9AB051571D64795F00F670F1 /* AnimalSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalSelector.swift; sourceTree = "<group>"; };
+		9AB9C2CC1D66B57D00DDDC1E /* FileReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
+		9AB9C2CE1D66C7E800DDDC1E /* LevelState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelState.swift; sourceTree = "<group>"; };
 		F43051ED1D601E4600E6EAAE /* PenguinPairs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenguinPairs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43051F01D601E4600E6EAAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F43051F41D601E4600E6EAAE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; wrapsLines = 1; };
@@ -159,6 +163,7 @@
 				9A0939A01D61D4B20067738D /* HelpState.swift */,
 				9A0939A21D61D5720067738D /* OptionsMenuState.swift */,
 				9A0939A41D61D74F0067738D /* LevelMenuState.swift */,
+				9AB9C2CE1D66C7E800DDDC1E /* LevelState.swift */,
 			);
 			name = State;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 				F4B79B201D60B970003A4275 /* Sound.swift */,
 				F4B79B031D60B0C1003A4275 /* SKNode_Extension.swift */,
 				9AB051501D64770E00F670F1 /* Math.swift */,
+				9AB9C2CC1D66B57D00DDDC1E /* FileReader.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -390,6 +396,7 @@
 			files = (
 				F4B79B041D60B0C1003A4275 /* SKNode_Extension.swift in Sources */,
 				F43051F51D601E4600E6EAAE /* GameScene.swift in Sources */,
+				9AB9C2CD1D66B57D00DDDC1E /* FileReader.swift in Sources */,
 				F43051F71D601E4600E6EAAE /* GameViewController.swift in Sources */,
 				F4B79B1B1D60B76A003A4275 /* OnOffButton.swift in Sources */,
 				9A0939A71D61D7AA0067738D /* LevelButton.swift in Sources */,
@@ -399,6 +406,7 @@
 				F43051F11D601E4600E6EAAE /* AppDelegate.swift in Sources */,
 				9A36D2431D6565F300AA9822 /* Tile.swift in Sources */,
 				9A0939A31D61D5720067738D /* OptionsMenuState.swift in Sources */,
+				9AB9C2CF1D66C7E800DDDC1E /* LevelState.swift in Sources */,
 				9A36D23E1D6559E600AA9822 /* Animal.swift in Sources */,
 				9A09399D1D61CDA80067738D /* TitleMenuState.swift in Sources */,
 				F43052231D601FD800E6EAAE /* GridLayout.swift in Sources */,

@@ -12,13 +12,15 @@ class LevelMenuState : SKNode{
     var backButton = Button(imageNamed:"spr_button_back")
     var levelButtons = SKNode()
     var layout: GridLayout?
+    var data = FileReader(fileNamed:"levels")
     var nrLevels = 0
     var quitButton = Button(imageNamed:"spr_button_quit")
+    var animals = SKNode()
     
     // initializers
     init(nrLevels: Int) {
         super.init()
-        self.nrLevels = nrLevels
+        self.nrLevels = Int(data.nextLine())!
         self.name = "level"
         
         let nrCols = 6
@@ -69,5 +71,16 @@ class LevelMenuState : SKNode{
         if backButton.tapped {
             GameStateManager.instance.switchTo("title")
         }
+    }
+    
+    func findAnimalAtPosition(col:Int, row:Int) -> Animal?{
+        for obj in animals.children{
+            let animal = obj as! Animal
+            let (currCol, currRow) = animal.currentBlock
+            if currCol == col && currRow == row && animal.velocity == CGPoint.zero{
+                return animal
+            }
+        }
+        return nil
     }
 }

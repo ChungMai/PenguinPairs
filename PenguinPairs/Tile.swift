@@ -12,6 +12,8 @@ enum TileType {
     case Wall
     case Background
     case Normal
+    case Seal
+    case Empty
 }
 
 class Tile : SKSpriteNode{
