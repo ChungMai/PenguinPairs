@@ -86,7 +86,6 @@ class LevelState : SKNode{
                     p.initialPosition = tile.position
                     p.zPosition = Layer.Scene1
                     animals.addChild(p)
-                    print(p.position)
                 default:
                     let tile = Tile(imageNamed: "spr_wall", type: .Wall)
                     tile.zPosition = Layer.Scene
@@ -94,9 +93,7 @@ class LevelState : SKNode{
                 }
             }
         }
-        
         self.addChild(animals)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

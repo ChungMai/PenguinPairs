@@ -73,14 +73,14 @@ class LevelMenuState : SKNode{
         }
     }
     
-    func findAnimalAtPosition(col:Int, row:Int) -> Animal?{
-        for obj in animals.children{
-            let animal = obj as! Animal
-            let (currCol, currRow) = animal.currentBlock
-            if currCol == col && currRow == row && animal.velocity == CGPoint.zero{
-                return animal
-            }
-        }
-        return nil
-    }
+//    func findAnimalAtPosition(col:Int, row:Int) -> Animal?{
+//        for obj in animals.children{
+//            let animal = obj as! Animal
+//            let (currCol, currRow) = animal.currentBlock
+//            if currCol == col && currRow == row && animal.velocity == CGPoint.zero{
+//                return animal
+//            }
+//        }
+//        return nil
+//    }
 }
