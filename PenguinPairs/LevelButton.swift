@@ -32,14 +32,14 @@ class LevelButton : Button {
         fatalError("init(coder:) has not been implemented")
     }
     
-    /*override func handleInput(inputHelper: InputHelper) {
-     super.handleInput(inputHelper)
-     if self.texture == locked {
-     return
-     }
-     if tapped {
-     GameStateManager.instance.switchTo("level\(levelIndex)")
-     GameStateManager.instance.reset()
-     }
-     }*/
+    override func handleInput(inputHelper: InputHelper) {
+        super.handleInput(inputHelper)
+        if self.texture == locked {
+            return
+        }
+        if tapped {
+            GameStateManager.instance.switchTo("level\(levelIndex)")
+            GameStateManager.instance.reset()
+        }
+    }
 }

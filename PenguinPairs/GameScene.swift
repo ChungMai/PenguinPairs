@@ -31,7 +31,17 @@ class GameScene: SKScene {
         GameStateManager.instance.add(TitleMenuState())
         GameStateManager.instance.add(HelpState())
         GameStateManager.instance.add(OptionsMenuState())
-        GameStateManager.instance.add(LevelMenuState(nrLevels: 12))
+        // add the levels
+        
+        
+        let levels = FileReader(fileNamed:"levels")
+        let levelNr = Int(levels.nextLine())!
+        
+        GameStateManager.instance.add(LevelMenuState(nrLevels:levelNr))
+        for i in 1...levelNr{
+            GameStateManager.instance.add(LevelState(fileReader: levels, levelNr: i))
+        }
+        
         GameStateManager.instance.switchTo("title")
     }
     

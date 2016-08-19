@@ -12,8 +12,8 @@ class TileField : SKNode{
     
     var layout : GridLayout
     
-    init(rows: Int, columns : Int, cellWidth : Int, cellHeigh : Int){
-        layout = GridLayout(rows: rows, columns: columns, cellWidth:  cellWidth, cellHeight: cellHeigh)
+    init(rows: Int, columns : Int, cellWidth : Int, cellHeight : Int){
+        layout = GridLayout(rows: rows, columns: columns, cellWidth:  cellWidth, cellHeight: cellHeight)
         super.init()
         layout.target = self
     }

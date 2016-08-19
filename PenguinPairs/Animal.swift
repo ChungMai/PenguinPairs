@@ -8,16 +8,27 @@
 
 import SpriteKit
 
-class Animal : SKNode{
+class Animal : SKSpriteNode{
     
     var velocity = CGPoint.zero
     var isSharp : Bool = false
     var boxed : Bool = false
     var type = "x"
+    var initialEmptyBox : Bool = false
+    var initialPosition = CGPoint.zero
     
-    override init(){
-        super.init()
+    init(type: String) {
+        boxed = type.uppercaseString == type
+        var spriteName = "spr_animal_\(type)"
+        if boxed && type != "@" {
+            spriteName = "spr_animal_boxed_\(type.lowercaseString)"
+        }
+        let texture = SKTexture(imageNamed: spriteName)
+        super.init(texture: texture, color: UIColor.whiteColor(), size: texture.size())
+        self.type = type
+        initialEmptyBox = type.lowercaseString == "@"
     }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -32,11 +32,10 @@ class GridLayout{
         }
     }
     
-    func toPosition(col : Int, row : Int) -> CGPoint
-    {
-        let xPos = -width/2 + ((col * cellWidth) + (cellWidth/2))
-        let yPos = -height/2 + ((row * cellHeight) + (cellHeight/2))
-        return CGPoint(x:xPos, y:yPos)
+    func toPosition(col: Int, row: Int) -> CGPoint {
+        let xpos = -CGFloat(width/2) + CGFloat(col * (cellWidth + xPadding) + cellWidth / 2)
+        let ypos = -CGFloat(height/2) + CGFloat(row * (cellHeight + yPadding) + cellHeight / 2)
+        return CGPoint(x: xpos, y: ypos)
     }
     
     func add(obj : SKNode){
