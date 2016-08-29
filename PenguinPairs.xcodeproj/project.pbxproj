@@ -18,6 +18,7 @@
 		9A36D23E1D6559E600AA9822 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A36D23D1D6559E600AA9822 /* Animal.swift */; };
 		9A36D2401D6562AF00AA9822 /* TileField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A36D23F1D6562AF00AA9822 /* TileField.swift */; };
 		9A36D2431D6565F300AA9822 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A36D2421D6565F300AA9822 /* Tile.swift */; };
+		9A59667B1D743520004F52B1 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59667A1D743520004F52B1 /* DefaultsManager.swift */; };
 		9AB051511D64770E00F670F1 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB051501D64770E00F670F1 /* Math.swift */; };
 		9AB051581D64795F00F670F1 /* AnimalSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB051571D64795F00F670F1 /* AnimalSelector.swift */; };
 		9AB9C2CD1D66B57D00DDDC1E /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9C2CC1D66B57D00DDDC1E /* FileReader.swift */; };
@@ -75,6 +76,7 @@
 		9A36D23D1D6559E600AA9822 /* Animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		9A36D23F1D6562AF00AA9822 /* TileField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileField.swift; sourceTree = "<group>"; };
 		9A36D2421D6565F300AA9822 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		9A59667A1D743520004F52B1 /* DefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
 		9AB051501D64770E00F670F1 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		9AB051571D64795F00F670F1 /* AnimalSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalSelector.swift; sourceTree = "<group>"; };
 		9AB9C2CC1D66B57D00DDDC1E /* FileReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				F43052221D601FD800E6EAAE /* GridLayout.swift */,
 				9A09399A1D61C2F40067738D /* GameStateManager.swift */,
 				9A0939A81D61DE6C0067738D /* GameScreen.swift */,
+				9A59667A1D743520004F52B1 /* DefaultsManager.swift */,
 			);
 			path = PenguinPairs;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				9A0939A91D61DE6C0067738D /* GameScreen.swift in Sources */,
 				F4B79B021D6076CA003A4275 /* InputHelper.swift in Sources */,
 				9A0939A51D61D74F0067738D /* LevelMenuState.swift in Sources */,
+				9A59667B1D743520004F52B1 /* DefaultsManager.swift in Sources */,
 				9A09399F1D61D1480067738D /* Button.swift in Sources */,
 				9A09399B1D61C2F40067738D /* GameStateManager.swift in Sources */,
 			);
