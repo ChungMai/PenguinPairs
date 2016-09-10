@@ -37,7 +37,6 @@ class LevelMenuState : SKNode{
 //        /* The original C-style for statement is deprecated. You can achieve the same thing
 //         by using a range and reversing it, as illustrated below */
         for i in (0..<nrRows).reverse() {
-            print("i:\(i)")
             for j in 0..<nrCols {
                 //if i*nrCols + j + 1 <= nrLevels {
                     let level = LevelButton(levelIndex: i*nrCols + j + 1)
@@ -73,14 +72,5 @@ class LevelMenuState : SKNode{
         }
     }
     
-//    func findAnimalAtPosition(col:Int, row:Int) -> Animal?{
-//        for obj in animals.children{
-//            let animal = obj as! Animal
-//            let (currCol, currRow) = animal.currentBlock
-//            if currCol == col && currRow == row && animal.velocity == CGPoint.zero{
-//                return animal
-//            }
-//        }
-//        return nil
-//    }
+    
 }

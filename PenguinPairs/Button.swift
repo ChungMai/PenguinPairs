@@ -20,11 +20,6 @@ class Button : SKSpriteNode{
         fatalError("init(coder:) has not been implemented")
     }
     
-    var center : CGPoint{
-        return CGPoint(x:self.size.width/2, y:self.size.height/2);
-    }
-    
-    
     override func handleInput(inputHelper: InputHelper) {
         super.handleInput(inputHelper)
         tapped = inputHelper.containsTap(self.box)

@@ -22,7 +22,7 @@ class AnimalSelector : SKNode{
         arrowLeft.position = CGPoint(x:-spacing,y: 0)
         arrowUp.position = CGPoint(x:0,y: spacing)
         arrowDown.position = CGPoint(x:0,y: -spacing)
-        self.addChild(arrowDown)
+        self.addChild(arrowRight)
         self.addChild(arrowUp)
         self.addChild(arrowLeft)
         self.addChild(arrowDown)
@@ -34,32 +34,32 @@ class AnimalSelector : SKNode{
     }
     
     override func handleInput(inputHelper: InputHelper) {
-        if inputHelper.hasTapped && !inputHelper.containsTap(selectedAnimal!.box){
-            self.hidden = true
-            selectedAnimal = nil
-        }
         
         if self.hidden{
             return
         }
-        else{
-            var animalVelocity = CGPoint.zero
-            super.handleInput(inputHelper)
-            if arrowDown.tapped{
-                animalVelocity.y -= 1
-            }
-            else if arrowUp.tapped{
-                animalVelocity.y += 1
-            }
-            else if arrowLeft.tapped{
-                animalVelocity.x -= 1
-            }
-            else if arrowRight.tapped{
-                animalVelocity.x += 1
-            }
-            
-            animalVelocity = animalVelocity * CGFloat(500)
-            selectedAnimal!.velocity = animalVelocity
+        
+        var animalVelocity = CGPoint.zero
+        super.handleInput(inputHelper)
+        if arrowDown.tapped{
+            animalVelocity.y -= 1
+        }
+        else if arrowUp.tapped{
+            animalVelocity.y += 1
+        }
+        else if arrowLeft.tapped{
+            animalVelocity.x -= 1
+        }
+        else if arrowRight.tapped{
+            animalVelocity.x += 1
+        }
+        
+        animalVelocity = animalVelocity * CGFloat(500)
+        selectedAnimal?.velocity = animalVelocity
+        
+        if inputHelper.hasTapped && !inputHelper.containsTap(selectedAnimal!.box){
+            self.hidden = true
+            selectedAnimal = nil
         }
     }
     

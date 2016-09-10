@@ -47,19 +47,17 @@ class GridLayout{
         }
     }
     
-    func at(col:Int,row:Int) -> SKNode?
-    {
-        if col > columns || col < 0 || row > rows || row < 0{
+    func at(col: Int, row: Int) -> SKNode? {
+        if col < 0 || col >= columns || row < 0 || row >= rows {
             return nil
         }
-        
-        if let target = target{
-            let index = (row * columns) + columns
-            return target.children[index] as? SKNode
+        if let target_unwrapped = target {
+            let index = row * columns + col
+            return target_unwrapped.children[index]
         }
-        
         return nil
     }
+
     
     func toGridLocation(position: CGPoint) -> (Int, Int) {
         let colindex = Int(floor((position.x + CGFloat(columns * (cellWidth + xPadding)) / 2) / CGFloat(cellWidth + xPadding)))

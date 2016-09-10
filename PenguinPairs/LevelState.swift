@@ -43,14 +43,15 @@ class LevelState : SKNode{
         
         let _ = fileReader.nextLine()
         let _ = fileReader.nextLine()
-        let _ = Int(fileReader.nextLine())!
+        let nrPairs = Int(fileReader.nextLine())!
         let sizeArr = fileReader.nextLine().componentsSeparatedByString(" ")
         let width = Int(sizeArr[0])!, height = Int(sizeArr[1])!
         let _ = fileReader.nextLine().componentsSeparatedByString(" ")
         
+        
         let tileDimension = 75
         let tileField = TileField(rows: height, columns: width, cellWidth: tileDimension, cellHeight: tileDimension)
-        tileField.name = "level\(levelNr)_tileField"
+        tileField.name = "tileField"
         self.addChild(tileField)
         
         for _ in 0..<height{
@@ -94,6 +95,23 @@ class LevelState : SKNode{
             }
         }
         self.addChild(animals)
+        
+        // animal selector
+        let animalSelector = AnimalSelector(spacing: tileDimension)
+        animalSelector.name = "animalSelector"
+        animalSelector.zPosition = Layer.Scene2
+        self.addChild(animalSelector)
+        
+        // pair list
+        let goalFrame = SKSpriteNode(imageNamed: "spr_frame_goal")
+        goalFrame.zPosition = Layer.Overlay
+        goalFrame.position = GameScreen.instance.topLeft + CGPoint(x: 10 + goalFrame.center.x, y: -40)
+        self.addChild(goalFrame)
+        let pairList = PairList(nrPairs: nrPairs)
+        pairList.name = "pairList"
+        pairList.zPosition = Layer.Overlay1
+        pairList.position = GameScreen.instance.topLeft + CGPoint(x: 130, y: -40)
+        self.addChild(pairList)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -105,5 +123,16 @@ class LevelState : SKNode{
         if quitButton.tapped{
             GameStateManager.instance.switchTo("level")
         }
+    }
+    
+    func findAnimalAtPosition(col: Int, row: Int) -> Animal? {
+        for obj in animals.children {
+            let animal = obj as! Animal
+            let (currcol, currrow) = animal.currentBlock
+            if currcol == col && currrow == row && animal.velocity == CGPoint.zero {
+                return animal
+            }
+        }
+        return nil
     }
 }

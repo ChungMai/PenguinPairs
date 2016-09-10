@@ -20,6 +20,16 @@ func * (point: CGPoint, increase : CGFloat) -> CGPoint{
     return CGPoint(x: point.x * increase, y: point.y * increase)
 }
 
+func + (left: CGPoint, right: CGPoint) -> CGPoint {
+    return CGPoint(x: left.x + right.x, y: left.y + right.y)
+}
+
+func += (inout left: CGPoint, right: CGPoint) {
+    left.x += right.x
+    left.y += right.y
+}
+
+
 extension CGPoint {
     static func normalize(p : CGPoint) -> CGPoint {
         let len = p.length
