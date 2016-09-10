@@ -15,6 +15,9 @@ class LevelState : SKNode{
     var quitButton = Button(imageNamed:"spr_button_quit")
     var retryButton = Button(imageNamed:"spr_button_retry")
     var hintButton = Button(imageNamed:"spr_button_hint")
+    let hintVisibleAction = SKAction.sequence([SKAction.unhide(),SKAction.waitForDuration(1), SKAction.hide()])
+    var hint = SKSpriteNode()
+    var firstMoveMade = false
     
     init(fileReader: FileReader, levelNr : Int){
         super.init()
@@ -46,7 +49,7 @@ class LevelState : SKNode{
         let nrPairs = Int(fileReader.nextLine())!
         let sizeArr = fileReader.nextLine().componentsSeparatedByString(" ")
         let width = Int(sizeArr[0])!, height = Int(sizeArr[1])!
-        let _ = fileReader.nextLine().componentsSeparatedByString(" ")
+        let hintArr = fileReader.nextLine().componentsSeparatedByString(" ")
         
         
         let tileDimension = 75
@@ -112,6 +115,13 @@ class LevelState : SKNode{
         pairList.zPosition = Layer.Overlay1
         pairList.position = GameScreen.instance.topLeft + CGPoint(x: 130, y: -40)
         self.addChild(pairList)
+        
+        let hintx = Int(hintArr[0])!, hinty = Int(hintArr[1])!
+        hint = SKSpriteNode(imageNamed: "spr_arrow_hint_\(hintArr[2])")
+        hint.zPosition = Layer.Scene2
+        hint.position = tileField.layout.toPosition(hintx, row: hinty)
+        hint.hidden = true
+        self.addChild(hint)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -122,6 +132,14 @@ class LevelState : SKNode{
         super.handleInput(inputHelper)
         if quitButton.tapped{
             GameStateManager.instance.switchTo("level")
+        }
+        
+        if retryButton.tapped && !firstMoveMade{
+            print("Retry tapped")
+        }
+        
+        if hintButton.tapped && firstMoveMade{
+            hint.runAction(hintVisibleAction)
         }
     }
     
@@ -134,5 +152,19 @@ class LevelState : SKNode{
             }
         }
         return nil
+    }
+    
+    func applyFirstMoveMade() {
+        self.hintButton.hidden = true
+        self.retryButton.hidden = false
+        firstMoveMade = true
+    }
+    
+    override func updateDelta(delta: NSTimeInterval) {
+        super.updateDelta(delta)
+        if !firstMoveMade {
+            self.hintButton.hidden = !DefaultsManager.instance.hints
+            self.retryButton.hidden = DefaultsManager.instance.hints
+        }
     }
 }

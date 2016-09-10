@@ -61,6 +61,10 @@ class AnimalSelector : SKNode{
             self.hidden = true
             selectedAnimal = nil
         }
+        
+        let level = GameStateManager.instance.currentState as? LevelState
+        if animalVelocity != CGPoint.zero{
+            level?.applyFirstMoveMade()
+        }
     }
-    
 }
