@@ -66,7 +66,7 @@ class DefaultsManager{
         }
     }
     
-    func setLevelStatu(levelNr : Int, status : String){
+    func setLevelStatus(levelNr : Int, status : String){
         var levels = defaults.arrayForKey("levelStatus")
         
         if levelNr < 1 || levelNr > levels?.count{

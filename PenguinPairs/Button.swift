@@ -22,7 +22,7 @@ class Button : SKSpriteNode{
     
     override func handleInput(inputHelper: InputHelper) {
         super.handleInput(inputHelper)
-        tapped = inputHelper.containsTap(self.box)
+        tapped = inputHelper.containsTap(self.box) && !self.hidden
     }
     
 }

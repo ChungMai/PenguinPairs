@@ -33,19 +33,13 @@ class LevelMenuState : SKNode{
         layout?.yPadding = 5
         self.addChild(levelButtons)
         layout?.target = levelButtons
-//
-//        /* The original C-style for statement is deprecated. You can achieve the same thing
-//         by using a range and reversing it, as illustrated below */
+
         for i in (0..<nrRows).reverse() {
             for j in 0..<nrCols {
-                //if i*nrCols + j + 1 <= nrLevels {
                     let level = LevelButton(levelIndex: i*nrCols + j + 1)
                     level.name = "levelButton\(i*nrCols + j + 1)"
                     level.zPosition = Layer.Scene
                     layout?.add(level)
-//                } else {
-//                    layout?.add(SKNode())
-//                }
             }
         }
         

@@ -18,6 +18,10 @@ class LevelState : SKNode{
     let hintVisibleAction = SKAction.sequence([SKAction.unhide(),SKAction.waitForDuration(1), SKAction.hide()])
     var hint = SKSpriteNode()
     var firstMoveMade = false
+    var helpFrame = SKSpriteNode(imageNamed:"spr_frame_help")
+    var levelFinishedOverlay = SKSpriteNode(imageNamed: "spr_level_finished")
+    var pairList = PairList(nrPairs: 0)
+    var wonSound = Sound("snd_won")
     
     init(fileReader: FileReader, levelNr : Int){
         super.init()
@@ -31,8 +35,8 @@ class LevelState : SKNode{
         retryButton.zPosition = Layer.Overlay
         retryButton.position.x = quitButton.position.x - quitButton.size.width - 10
         retryButton.position.y = quitButton.position.y
-        self.addChild(retryButton)
         retryButton.hidden = true
+        self.addChild(retryButton)
         
         hintButton.zPosition = Layer.Overlay
         hintButton.position = retryButton.position
@@ -45,7 +49,7 @@ class LevelState : SKNode{
         self.addChild(background)
         
         let _ = fileReader.nextLine()
-        let _ = fileReader.nextLine()
+        let help = fileReader.nextLine()
         let nrPairs = Int(fileReader.nextLine())!
         let sizeArr = fileReader.nextLine().componentsSeparatedByString(" ")
         let width = Int(sizeArr[0])!, height = Int(sizeArr[1])!
@@ -110,7 +114,7 @@ class LevelState : SKNode{
         goalFrame.zPosition = Layer.Overlay
         goalFrame.position = GameScreen.instance.topLeft + CGPoint(x: 10 + goalFrame.center.x, y: -40)
         self.addChild(goalFrame)
-        let pairList = PairList(nrPairs: nrPairs)
+        pairList = PairList(nrPairs: nrPairs)
         pairList.name = "pairList"
         pairList.zPosition = Layer.Overlay1
         pairList.position = GameScreen.instance.topLeft + CGPoint(x: 130, y: -40)
@@ -122,6 +126,25 @@ class LevelState : SKNode{
         hint.position = tileField.layout.toPosition(hintx, row: hinty)
         hint.hidden = true
         self.addChild(hint)
+        
+        helpFrame.position = CGPoint(x: 0, y: GameScreen.instance.bottom + helpFrame.center.y + 10)
+        helpFrame.zPosition = Layer.Overlay
+        helpFrame.hidden = true
+        self.addChild(helpFrame)
+        
+        let textLabel = SKLabelNode(fontNamed: "Autodestruct BB")
+        textLabel.fontColor = UIColor(red: 0, green: 0, blue: 0.4, alpha: 1)
+        textLabel.fontSize = 24
+        textLabel.text = help
+        textLabel.horizontalAlignmentMode = .Center
+        textLabel.verticalAlignmentMode = .Center
+        textLabel.zPosition = 1
+        helpFrame.addChild(textLabel)
+        
+        // winning overlay
+        levelFinishedOverlay.hidden = true
+        levelFinishedOverlay.zPosition = Layer.Overlay2
+        self.addChild(levelFinishedOverlay)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -129,16 +152,32 @@ class LevelState : SKNode{
     }
     
     override func handleInput(inputHelper: InputHelper) {
+        if !levelFinishedOverlay.hidden{
+            if !inputHelper.containsTap(levelFinishedOverlay.box) {
+                return
+            }
+            self.reset()
+            
+            DefaultsManager.instance.setLevelStatus(self.levelNr, status: "solved")
+            if GameStateManager.instance.has("level\(levelNr+1)") {
+                if DefaultsManager.instance.getLevelStatus(self.levelNr+1) == "locked" {
+                    DefaultsManager.instance.setLevelStatus(self.levelNr+1, status: "unsolved")
+                }
+                GameStateManager.instance.switchTo("level\(levelNr+1)")
+                GameStateManager.instance.reset()
+            } else {
+                GameStateManager.instance.switchTo("level")
+            }
+        }
+        
         super.handleInput(inputHelper)
         if quitButton.tapped{
             GameStateManager.instance.switchTo("level")
         }
         
-        if retryButton.tapped && !firstMoveMade{
-            print("Retry tapped")
-        }
-        
-        if hintButton.tapped && firstMoveMade{
+        if retryButton.tapped{
+            self.reset()
+        }else if hintButton.tapped{
             hint.runAction(hintVisibleAction)
         }
     }
@@ -166,5 +205,19 @@ class LevelState : SKNode{
             self.hintButton.hidden = !DefaultsManager.instance.hints
             self.retryButton.hidden = DefaultsManager.instance.hints
         }
+        
+        
+        if(levelFinishedOverlay.hidden && pairList.completed){
+            levelFinishedOverlay.hidden = false
+            wonSound.play()
+            
+        }
+    }
+    
+    override func reset() {
+        super.reset()
+        firstMoveMade = false
+        self.levelFinishedOverlay.hidden = true
+        helpFrame.runAction(SKAction.sequence([SKAction.unhide(),SKAction.waitForDuration(5), SKAction.hide()]))
     }
 }
