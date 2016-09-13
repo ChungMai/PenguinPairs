@@ -36,7 +36,9 @@ class OptionsMenuState : SKNode{
         self.addChild(onOffLabel)
         
         onOffButton.position = CGPoint(x: 200, y: 50)
+        onOffButton.name = "OnOffHint"
         self.addChild(onOffButton)
+        onOffButton.on = DefaultsManager.instance.hints
         
         let musicLabel = SKLabelNode(fontNamed: "Helvetica")
         musicLabel.horizontalAlignmentMode = .Right
@@ -49,6 +51,7 @@ class OptionsMenuState : SKNode{
         
         
         musicSlider.position = CGPoint(x: 200, y: -100)
+        musicSlider.value = CGFloat(DefaultsManager.instance.musicVolume)
         self.addChild(musicSlider)
     }
     
@@ -61,5 +64,11 @@ class OptionsMenuState : SKNode{
         if backButton.tapped {
             GameStateManager.instance.switchTo("title")
         }
+    }
+    
+    override func updateDelta(delta: NSTimeInterval) {
+        super.updateDelta(delta)
+        DefaultsManager.instance.hints = onOffButton.on
+        DefaultsManager.instance.musicVolume = Float(musicSlider.value)
     }
 }

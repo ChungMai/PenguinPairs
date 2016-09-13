@@ -10,6 +10,7 @@ import SpriteKit
 
 class GameStateManager : SKNode{
     static var instance = GameStateManager()
+    static var isHideHint = false
     var states : [SKNode] = []
     var currentState : SKNode? = nil
     var plannedSwitch : String? = nil

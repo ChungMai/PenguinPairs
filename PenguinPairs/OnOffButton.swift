@@ -39,6 +39,7 @@ class OnOffButton : SKSpriteNode{
         super.handleInput(inputHelper)
         if inputHelper.containsTap(self.box) && !self.hidden{
             self.on = !self.on
+            GameStateManager.isHideHint = !self.on
         }
     }
 }

@@ -40,7 +40,11 @@ class LevelState : SKNode{
         
         hintButton.zPosition = Layer.Overlay
         hintButton.position = retryButton.position
+ 
         self.addChild(hintButton)
+        if !GameStateManager.isHideHint{
+            hintButton.hidden = true
+        }
         
         self.levelNr = levelNr
         self.name = "level\(levelNr)"
@@ -152,6 +156,7 @@ class LevelState : SKNode{
     }
     
     override func handleInput(inputHelper: InputHelper) {
+        
         if !levelFinishedOverlay.hidden{
             if !inputHelper.containsTap(levelFinishedOverlay.box) {
                 return
@@ -203,14 +208,12 @@ class LevelState : SKNode{
         super.updateDelta(delta)
         if !firstMoveMade {
             self.hintButton.hidden = !DefaultsManager.instance.hints
-            self.retryButton.hidden = DefaultsManager.instance.hints
         }
-        
         
         if(levelFinishedOverlay.hidden && pairList.completed){
             levelFinishedOverlay.hidden = false
+            wonSound.volume = DefaultsManager.instance.musicVolume
             wonSound.play()
-            
         }
     }
     

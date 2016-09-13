@@ -14,7 +14,6 @@ class LevelMenuState : SKNode{
     var layout: GridLayout?
     var data = FileReader(fileNamed:"levels")
     var nrLevels = 0
-    var quitButton = Button(imageNamed:"spr_button_quit")
     var animals = SKNode()
     
     // initializers
@@ -49,10 +48,6 @@ class LevelMenuState : SKNode{
         backButton.zPosition = Layer.Scene
         backButton.position = CGPoint(x: 0, y: -320)
         self.addChild(backButton)
-        
-        quitButton.position = GameScreen.instance.topRight - quitButton.center - CGPoint(x:10,y:10)
-        quitButton.zPosition = Layer.Overlay
-        addChild(quitButton)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -65,6 +60,4 @@ class LevelMenuState : SKNode{
             GameStateManager.instance.switchTo("title")
         }
     }
-    
-    
 }

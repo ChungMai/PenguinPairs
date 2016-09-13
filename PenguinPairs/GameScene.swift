@@ -32,7 +32,7 @@ class GameScene: SKScene {
         loadingFrame.zPosition = Layer.Overlay2
         //self.addChild(loadingFrame)
         
-        let loadingText = SKLabelNode(fontNamed: "Autodestruct BB")
+        let loadingText = SKLabelNode(fontNamed: "Autodestruct")
         loadingText.position = CGPoint(x: 0, y: -20)
         loadingText.fontColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 1)
         loadingText.fontSize = 30
@@ -53,11 +53,10 @@ class GameScene: SKScene {
         let levelNr = Int(levels.nextLine())!
         
         GameStateManager.instance.add(LevelMenuState(nrLevels:levelNr))
-//        for i in 1...levelNr{
-//            GameStateManager.instance.add(LevelState(fileReader: levels, levelNr: i))
-//        }
+        for i in 1...levelNr{
+            GameStateManager.instance.add(LevelState(fileReader: levels, levelNr: i))
+        }
         
-       //loadingFrame.hidden = true
         GameStateManager.instance.switchTo("title")
     }
     
