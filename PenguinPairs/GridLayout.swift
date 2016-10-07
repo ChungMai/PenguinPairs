@@ -32,13 +32,13 @@ class GridLayout{
         }
     }
     
-    func toPosition(col: Int, row: Int) -> CGPoint {
+    func toPosition(_ col: Int, row: Int) -> CGPoint {
         let xpos = -CGFloat(width/2) + CGFloat(col * (cellWidth + xPadding) + cellWidth / 2)
         let ypos = -CGFloat(height/2) + CGFloat(row * (cellHeight + yPadding) + cellHeight / 2)
         return CGPoint(x: xpos, y: ypos)
     }
     
-    func add(obj : SKNode){
+    func add(_ obj : SKNode){
         if let target = self.target{
             let r  = target.children.count / columns
             let c : Int = target.children.count % columns
@@ -47,7 +47,7 @@ class GridLayout{
         }
     }
     
-    func at(col: Int, row: Int) -> SKNode? {
+    func at(_ col: Int, row: Int) -> SKNode? {
         if col < 0 || col >= columns || row < 0 || row >= rows {
             return nil
         }
@@ -59,7 +59,7 @@ class GridLayout{
     }
 
     
-    func toGridLocation(position: CGPoint) -> (Int, Int) {
+    func toGridLocation(_ position: CGPoint) -> (Int, Int) {
         let colindex = Int(floor((position.x + CGFloat(columns * (cellWidth + xPadding)) / 2) / CGFloat(cellWidth + xPadding)))
         let rowindex = Int(floor((position.y + CGFloat(rows * (cellHeight + yPadding)) / 2) / CGFloat(cellHeight + yPadding)))
         return (colindex, rowindex)

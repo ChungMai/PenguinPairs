@@ -18,15 +18,15 @@ class Animal : SKSpriteNode{
     var initialPosition = CGPoint.zero
     
     init(type: String) {
-        boxed = type.uppercaseString == type
+        boxed = type.uppercased() == type
         var spriteName = "spr_animal_\(type)"
         if boxed && type != "@" {
-            spriteName = "spr_animal_boxed_\(type.lowercaseString)"
+            spriteName = "spr_animal_boxed_\(type.lowercased())"
         }
         let texture = SKTexture(imageNamed: spriteName)
-        super.init(texture: texture, color: UIColor.whiteColor(), size: texture.size())
+        super.init(texture: texture, color: UIColor.white, size: texture.size())
         self.type = type
-        initialEmptyBox = type.lowercaseString == "@"
+        initialEmptyBox = type.lowercased() == "@"
     }
     
     
@@ -37,17 +37,17 @@ class Animal : SKSpriteNode{
     override func reset() {
         position = initialPosition
         velocity = CGPoint.zero
-        hidden = false
+        isHidden = false
         if initialEmptyBox {
             changeSpriteTo("@")
         }
     }
     
-    func changeSpriteTo(type: String) {
-        boxed = type.uppercaseString == type
+    func changeSpriteTo(_ type: String) {
+        boxed = type.uppercased() == type
         var spriteName = "spr_animal_\(type)"
         if boxed && type != "@" {
-            spriteName = "spr_animal_boxed_\(type.lowercaseString)"
+            spriteName = "spr_animal_boxed_\(type.lowercased())"
         }
         texture = SKTexture(imageNamed: spriteName)
         self.type = type
@@ -77,60 +77,60 @@ class Animal : SKSpriteNode{
         }
     }
     
-    override func handleInput(inputHelper: InputHelper) {
+    override func handleInput(_ inputHelper: InputHelper) {
         super.handleInput(inputHelper)
         
-        if hidden || boxed || isShark || velocity != CGPoint.zero {
+        if isHidden || boxed || isShark || velocity != CGPoint.zero {
             return
         }
         if !inputHelper.containsTap(box) {
             return
         }
         
-        if let animalSelector = childNodeWithName("//animalSelector") as? AnimalSelector{
-            if inputHelper.containsTap(animalSelector.box) || animalSelector.hidden{
+        if let animalSelector = childNode(withName: "//animalSelector") as? AnimalSelector{
+            if inputHelper.containsTap(animalSelector.box) || animalSelector.isHidden{
                 animalSelector.position = self.position
-                animalSelector.hidden = false
+                animalSelector.isHidden = false
                 animalSelector.selectedAnimal = self
             }
         }
     }
 
-    override func updateDelta(delta: NSTimeInterval) {
+    override func updateDelta(_ delta: TimeInterval) {
         super.updateDelta(delta)
         self.position += velocity * CGFloat(delta)
-        if self.hidden || velocity == CGPoint.zero{
+        if self.isHidden || velocity == CGPoint.zero{
             return
         }
         
-        let tileField = childNodeWithName("//tileField") as! TileField
+        let tileField = childNode(withName: "//tileField") as! TileField
         let (targetcol, targetrow) = currentBlock
-        if(tileField.getTileType(targetrow, column: targetcol) == TileType.Background){
-            self.hidden = true
+        if(tileField.getTileType(targetrow, column: targetcol) == TileType.background){
+            self.isHidden = true
             self.velocity = CGPoint.zero
         }
-        else if tileField.getTileType(targetrow, column:targetcol) == .Wall {
+        else if tileField.getTileType(targetrow, column:targetcol) == .wall {
             self.stopMoving()
         }
         else{
             let lvl = GameStateManager.instance.currentState as? LevelState
             if let a = lvl?.findAnimalAtPosition(targetcol, row: targetrow) {
-                if a.hidden {
+                if a.isHidden {
                     return
                 }
                 if a.isSeal {
                     stopMoving()
                 } else if a.isEmptyBox {
-                    self.hidden = true
-                    a.changeSpriteTo(self.type.uppercaseString)
-                } else if type.lowercaseString == a.type.lowercaseString || self.isMulticolor || a.isMulticolor {
-                    a.hidden = true
-                    self.hidden = true
-                    let pairList = childNodeWithName("//pairList") as! PairList
+                    self.isHidden = true
+                    a.changeSpriteTo(self.type.uppercased())
+                } else if type.lowercased() == a.type.lowercased() || self.isMulticolor || a.isMulticolor {
+                    a.isHidden = true
+                    self.isHidden = true
+                    let pairList = childNode(withName: "//pairList") as! PairList
                     pairList.addPair(type)
                 } else if a.isShark {
-                    a.hidden = true
-                    self.hidden = true
+                    a.isHidden = true
+                    self.isHidden = true
                     stopMoving()
                 } else {
                     self.stopMoving()
@@ -141,7 +141,7 @@ class Animal : SKSpriteNode{
 
     var currentBlock: (Int, Int) {
         get {
-            if let tileField = childNodeWithName("//tileField") as? TileField {
+            if let tileField = childNode(withName: "//tileField") as? TileField {
                 var edgepos = position
                 if velocity.x > 0 {
                     edgepos.x += CGFloat(tileField.layout.cellWidth) / 2
@@ -160,7 +160,7 @@ class Animal : SKSpriteNode{
 
     
     func stopMoving(){
-        let tileField = childNodeWithName("//tileField") as! TileField
+        let tileField = childNode(withName: "//tileField") as! TileField
         velocity = CGPoint.normalize(velocity)
         let (currentCol, currentRow) = currentBlock
         position = tileField.layout.toPosition(currentCol - Int(velocity.x), row: currentRow - Int(velocity.y))

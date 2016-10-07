@@ -12,9 +12,9 @@ class FileReader{
     var content : [String] = []
     var it = -1
     init(fileNamed : String){
-        let filePath = NSBundle.mainBundle().pathForResource(fileNamed, ofType: "txt")
-        let data = try! String(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding)
-        content = data.componentsSeparatedByString("\n")
+        let filePath = Bundle.main.path(forResource: fileNamed, ofType: "txt")
+        let data = try! String(contentsOfFile: filePath!, encoding: String.Encoding.utf8)
+        content = data.components(separatedBy: "\n")
     }
     
     func nextLine() ->String{

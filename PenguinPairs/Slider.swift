@@ -36,7 +36,7 @@ class Slider : SKNode{
         }
     }
     
-    func clamp(number:CGFloat, min:CGFloat, max:CGFloat) -> CGFloat{
+    func clamp(_ number:CGFloat, min:CGFloat, max:CGFloat) -> CGFloat{
         if number < min{
             return min
         }
@@ -48,7 +48,7 @@ class Slider : SKNode{
         }
     }
     
-    override func handleInput(inputHelper: InputHelper) {
+    override func handleInput(_ inputHelper: InputHelper) {
         if !inputHelper.isTouching{
             dragging = false
             draggingIndex = nil

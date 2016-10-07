@@ -26,16 +26,16 @@ class AnimalSelector : SKNode{
         self.addChild(arrowUp)
         self.addChild(arrowLeft)
         self.addChild(arrowDown)
-        self.hidden = true
+        self.isHidden = true
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func handleInput(inputHelper: InputHelper) {
+    override func handleInput(_ inputHelper: InputHelper) {
         
-        if self.hidden{
+        if self.isHidden{
             return
         }
         
@@ -58,7 +58,7 @@ class AnimalSelector : SKNode{
         selectedAnimal?.velocity = animalVelocity
         
         if inputHelper.hasTapped && !inputHelper.containsTap(selectedAnimal!.box){
-            self.hidden = true
+            self.isHidden = true
             selectedAnimal = nil
         }
         

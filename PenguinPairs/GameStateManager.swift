@@ -15,7 +15,7 @@ class GameStateManager : SKNode{
     var currentState : SKNode? = nil
     var plannedSwitch : String? = nil
     
-    func get(name : String) -> SKNode?{
+    func get(_ name : String) -> SKNode?{
         for state in states{
             if state.name == name{
                 return state
@@ -25,15 +25,15 @@ class GameStateManager : SKNode{
         return nil
     }
     
-    func switchTo(named : String){
+    func switchTo(_ named : String){
         plannedSwitch = named
     }
     
-    override func handleInput(inputHelper: InputHelper) {
+    override func handleInput(_ inputHelper: InputHelper) {
         super.handleInput(inputHelper)
     }
     
-    override func updateDelta(delta: NSTimeInterval) {
+    override func updateDelta(_ delta: TimeInterval) {
         super.updateDelta(delta)
         if plannedSwitch == nil || !has(plannedSwitch!) {
             return
@@ -44,7 +44,7 @@ class GameStateManager : SKNode{
         self.addChild(currentState!)
     }
     
-    func has(name:String) -> Bool{
+    func has(_ name:String) -> Bool{
         for state in states{
             if state.name == name{
                 return true
@@ -54,7 +54,7 @@ class GameStateManager : SKNode{
         return false
     }
     
-    func add(state : SKNode){
+    func add(_ state : SKNode){
         states.append(state)
     }
     

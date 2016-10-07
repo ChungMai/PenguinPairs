@@ -24,14 +24,14 @@ func + (left: CGPoint, right: CGPoint) -> CGPoint {
     return CGPoint(x: left.x + right.x, y: left.y + right.y)
 }
 
-func += (inout left: CGPoint, right: CGPoint) {
+func += (left: inout CGPoint, right: CGPoint) {
     left.x += right.x
     left.y += right.y
 }
 
 
 extension CGPoint {
-    static func normalize(p : CGPoint) -> CGPoint {
+    static func normalize(_ p : CGPoint) -> CGPoint {
         let len = p.length
         return CGPoint(x: p.x / len, y: p.y / len)
     }

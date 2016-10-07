@@ -33,7 +33,7 @@ class LevelMenuState : SKNode{
         self.addChild(levelButtons)
         layout?.target = levelButtons
 
-        for i in (0..<nrRows).reverse() {
+        for i in (0..<nrRows).reversed() {
             for j in 0..<nrCols {
                     let level = LevelButton(levelIndex: i*nrCols + j + 1)
                     level.name = "levelButton\(i*nrCols + j + 1)"
@@ -54,7 +54,7 @@ class LevelMenuState : SKNode{
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func handleInput(inputHelper: InputHelper) {
+    override func handleInput(_ inputHelper: InputHelper) {
         super.handleInput(inputHelper)
         if backButton.tapped {
             GameStateManager.instance.switchTo("title")

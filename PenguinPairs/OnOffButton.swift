@@ -14,7 +14,7 @@ class OnOffButton : SKSpriteNode{
     
     init()
     {
-        super.init(texture:onTexture, color:UIColor.whiteColor(),size: onTexture.size())
+        super.init(texture:onTexture, color:UIColor.white,size: onTexture.size())
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -35,9 +35,9 @@ class OnOffButton : SKSpriteNode{
         }
     }
     
-    override func handleInput(inputHelper: InputHelper) {
+    override func handleInput(_ inputHelper: InputHelper) {
         super.handleInput(inputHelper)
-        if inputHelper.containsTap(self.box) && !self.hidden{
+        if inputHelper.containsTap(self.box) && !self.isHidden{
             self.on = !self.on
             GameStateManager.isHideHint = !self.on
         }

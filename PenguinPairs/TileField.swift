@@ -22,11 +22,11 @@ class TileField : SKNode{
         fatalError("init(coder:) has not been implemented")
     }
     
-    func getTileType(row:Int, column:Int) -> TileType{
+    func getTileType(_ row:Int, column:Int) -> TileType{
         if let obj = layout.at(column, row: row) as? Tile{
             return obj.type
         }
         
-        return TileType.Background
+        return TileType.background
     }
 }

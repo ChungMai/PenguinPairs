@@ -19,7 +19,7 @@ struct Layer {
 }
 
 class GameScene: SKScene {
-    var delta: NSTimeInterval = 1/60
+    var delta: TimeInterval = 1/60
     
     var inputHelper = InputHelper()
     var touchmap: [UITouch:Int] = [UITouch:Int]()
@@ -37,7 +37,7 @@ class GameScene: SKScene {
         loadingText.fontColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 1)
         loadingText.fontSize = 30
         loadingText.text = "LOADING..."
-        loadingText.horizontalAlignmentMode = .Center
+        loadingText.horizontalAlignmentMode = .center
         loadingText.zPosition = Layer.Overlay
         
         loadingFrame.addChild(loadingText)
@@ -64,34 +64,34 @@ class GameScene: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
         addChild(GameStateManager.instance)
         view.frameInterval = 2
-        delta = NSTimeInterval(view.frameInterval) / 60
+        delta = TimeInterval(view.frameInterval) / 60
     }
     
-    override func update(currentTime: NSTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         GameStateManager.instance.handleInput(inputHelper)
         GameStateManager.instance.updateDelta(delta)
         inputHelper.reset()
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            let location = touch.locationInNode(self)
+            let location = touch.location(in: self)
             touchmap[touch] = inputHelper.touchBegan(location)
         }
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let touchid = touchmap[touch]!
-            inputHelper.touchMoved(touchid, loc: touch.locationInNode(self))
+            inputHelper.touchMoved(touchid, loc: touch.location(in: self))
         }
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let touchid = touchmap[touch]!
             touchmap[touch] = nil
